@@ -1,0 +1,32 @@
+.II {
+  color: white !important;
+  width: 25px;
+  height: 28px;
+  top: 2px;
+  left: 4px;
+  gap: 0px;
+  opacity: 0px;
+}
+.big2 {
+  background-color: rgb(0, 0, 0);
+  width: 346px;
+  height: 3068px;
+  left: 1382px;
+  gap: 0px;
+  opacity: 0px;
+  margin-left: -8px;
+  margin-top: -80px;
+  .vmes {
+    display: flex;
+    p {
+      color: #ccc;
+      font-family: sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 25.3px;
+      letter-spacing: 0.01em;
+      text-align: left;
+      margin-right: 90px;
+    }
+  }
+}
