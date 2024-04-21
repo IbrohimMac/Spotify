@@ -1,5 +1,6 @@
 import React from "react";
 import "../../../scss/LeftSide.scss";
+import { Link } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { IoLibrarySharp } from "react-icons/io5";
@@ -8,28 +9,38 @@ import { AiTwotoneLike } from "react-icons/ai";
 const LeftSidebar = () => {
   return (
     <div className="big1">
-      <div className="icons">
-        <div className="first">
-          <IoHome className="II" />
-          <p>Home</p>
+      <div className="bigg1">
+        <div className="mini1">
+          <Link to="/" className="link">
+            <div className="home">
+              <IoHome className="II" />
+              <h3>Home</h3>
+            </div>
+          </Link>
+          <div className="search">
+            <FaSearch className="II" />
+            <h3>Search</h3>
+          </div>
+          <div className="library">
+            <IoLibrarySharp className="II" />
+            <h3>Your Library</h3>
+          </div>
         </div>
-        <div className="second">
-          <FaSearch className="II" />
-          <p>Search</p>
+        <div className="mini2">
+          <Link to="/PlayList" className="link">
+            <div className="create">
+              <RiAddCircleFill className="II" />
+              <h3>Create Playlist</h3>
+            </div>
+          </Link>
+          <Link to="/Liked" className="link">
+            <div className="songs">
+              <AiTwotoneLike className="II" />
+              <h3>Liked Songs</h3>
+            </div>
+          </Link>
         </div>
-        <div className="second">
-          <IoLibrarySharp className="II" />
-          <p>Your Library</p>
-        </div>
-        <div className="third">
-          <RiAddCircleFill className="II" />
-          <p>Create Playlist</p>
-        </div>
-        <div className="fourth">
-          <AiTwotoneLike className="II" />
-          <p>Liked Songs</p>
-        </div>
-        <hr className="hr" />
+        <hr />
         <div className="categories">
           <p>Chill Mix</p>
           <p>Insta Hits</p>

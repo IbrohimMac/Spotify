@@ -3,16 +3,15 @@ import "../../../scss/RightSide.scss";
 import { IoMdPersonAdd } from "react-icons/io";
 import { VscChromeClose } from "react-icons/vsc";
 import i1 from "../../../images/i1.png";
-import i2 from "../../../images/i2.png";
 
 const RIghtSIdebar = () => {
   return (
-    <div>
+    <>
       <div className="big2">
         <div className="vme">
           <p>Friend Activity</p>
-          <IoMdPersonAdd className="I" />
-          <VscChromeClose className="I" />
+          <IoMdPersonAdd className="Ii" />
+          <VscChromeClose className="Ii" />
         </div>
         <div className="sled">
           <p>
@@ -21,15 +20,12 @@ const RIghtSIdebar = () => {
           <div className="imgs">
             <div className="img1">
               <img src={i1} alt="" />
-              <img className="ii1" src={i2} alt="" />
             </div>
-            <div className="img2">
+            <div className="img1">
               <img src={i1} alt="" />
-              <img src={i2} alt="" />
             </div>
-            <div className="img2">
+            <div className="img1">
               <img src={i1} alt="" />
-              <img src={i2} alt="" />
             </div>
           </div>
           <p className="sled-p">
@@ -39,7 +35,7 @@ const RIghtSIdebar = () => {
           <button>SETTINGS</button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
