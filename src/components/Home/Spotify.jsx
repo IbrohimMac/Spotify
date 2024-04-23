@@ -3,11 +3,15 @@ import "../../../scss/Spotify.scss";
 import { Link } from "react-router-dom";
 import { FaChevronCircleLeft } from "react-icons/fa";
 import { FaChevronCircleRight } from "react-icons/fa";
-import { getPlaylists, getToken } from "../JS/script";
+import { getMusic, getApia } from "../JS/script";
 import { API } from "../JS/data";
 import LeftSidebar from "../Sidebars/LeftSidebar";
 import RIghtSIdebar from "../Sidebars/RIghtSIdebar";
-
+import Mixes from "../Api/Mixes";
+import Made from "../Api/Made";
+import Recent from "../Api/Recent";
+import Jump from "../Api/Jump";
+import Uniquely from "../Api/Uniquely";
 const Spotify = () => {
   /////
   const [data, setData] = useState([]);
@@ -15,8 +19,8 @@ const Spotify = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await getToken(token);
-        const playlists = await getPlaylists(API);
+        await getApia(token);
+        const playlists = await getMusic(API);
         setData(playlists?.playlists.items);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -50,7 +54,12 @@ const Spotify = () => {
               </Link>
             ))}
           </div>
-          <h1 className="h1">Your top mixes</h1>
+          <Made />
+          <Mixes />
+          <Recent />
+          <Jump />
+          <Uniquely />
+          {/* <h1 className="h1">Your top mixes</h1>
           <div className="playlist">
             {data.slice(2, 6).map((data, index) => (
               <Link
@@ -151,7 +160,7 @@ const Spotify = () => {
                 </div>
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
         <RIghtSIdebar />
       </div>

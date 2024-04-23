@@ -1,7 +1,7 @@
 const ClientID = "f8ad3b81570c4ebfb5c3be7e657a0366";
 const ClientSecret = "4fc769b86e634917b57d50cf781a3358";
 
-export const getToken = async (token) => {
+export const getApia = async (token) => {
   try {
     const response = await fetch(token, {
       method: "POST",
@@ -22,7 +22,7 @@ export const getToken = async (token) => {
   }
 };
 
-export const getPlaylists = async (url) => {
+export const getMusic = async (url) => {
   try {
     const response = await fetch(url, {
       headers: {

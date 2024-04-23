@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { API } from "../JS/data";
-import { getPlaylists, getToken } from "../JS/script";
+import { getMusic, getApia } from "../JS/script";
 import LeftSidebar from "../Sidebars/LeftSidebar";
 import RIghtSIdebar from "../Sidebars/RIghtSIdebar";
 import "../../../scss/PlayList.scss";
@@ -13,51 +13,68 @@ import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { ImPlay2 } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
-const Details = () => {
+const PlayList = () => {
   const { id } = useParams();
   const api = window.location.href;
   const apiUrl = api.toString().split("?type=")[1];
   const tokenURl = "https://accounts.spotify.com/api/token";
 
+  const [date, setDate] = useState(null);
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await getToken(tokenURl);
-        const playlists = await getPlaylists(API);
-        const album = await getPlaylists(
+        await getApia(tokenURl);
+        const playlists = await getMusic(API);
+        const album = await getMusic(
           "https://api.spotify.com/v1/playlists/37i9dQZF1DWWY64wDtewQt/tracks"
         );
-        setData(playlists?.playlists.items);
+        setDate(playlists?.playlists.items);
+        setData(album.items);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
     fetchData();
-  }, []);
-
+  }, [api, apiUrl, id]);
   return (
     <div className="playlistBig">
       <LeftSidebar />
       <FaChevronCircleLeft className="I" />
       <FaChevronCircleRight className="I" />
       <h1>
-        {data?.map((el, i) => {
-          console.log(el);
-          if (el?.id === id) {
-            return (
-              <div className="playlist-card" key={i}>
-                <img src={el.images[0].url} alt="" />
-                <div className="playlist-card-mini">
-                  <h3>PUBLIC PLAYLIST</h3>
-                  <h1>{el?.name}</h1>
-                  <p>{el.description}</p>
+        <div>
+          {date?.map((el, i) => {
+            console.log(el);
+            if (el?.id === id) {
+              return (
+                <div key={i}>
+                  <div className="playlist-top">
+                    <div className="arrows">
+                      <IoIosArrowBack className="IoIosArrowBack" />
+                      <IoIosArrowForward className="IoIosArrowForward" />
+                    </div>
+                    <div className="playlist_top-texts">
+                      <img src={el?.images[0].url} alt={el?.name} />
+                      <div className="texts">
+                        <h6>PUBLIC PLAYLIST</h6>
+                        <h1>{el?.name}</h1>
+                        <p>
+                          Julia Wolf, ayokay, Khalid <span>and more</span>
+                        </p>
+                        <p>
+                          <span>ade for </span>davedirect3
+                          <span>34 songs, 2hr 01 min</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            );
-          }
-        })}
+              );
+            }
+          })}
+        </div>
         <div className="playlist-vmeste">
           <ImPlay2 className="playlist-icons" />
           <div className="playlistVmeste">
@@ -74,27 +91,73 @@ const Details = () => {
           </div>
         </div>
         <div className="playlist-table">
-          <table>
+          <table class="table">
             <thead className="playlist-thead">
               <tr>
                 <th>#</th>
-                <th className="th1">Title</th>
-                <th className="th2">Album</th>
-                <th className="th3">Date Added</th>
-                <th className="th4">
-                  <FaClock />
-                </th>
+                <th>Title</th>
+                <th>Album</th>
+                <th>Date Added</th>
               </tr>
             </thead>
             <tbody className="playlist-tbody">
-              <tr>
-                <th>1</th>
-                <th>Mark</th>
-                <th>Otto</th>
-                <th>@@@</th>
-              </tr>
+              {data?.slice(0, 15).map((el, i) => (
+                <tr>
+                  <th scope="row">{i + 1}</th>
+                  <td>
+                    <img
+                      className="playlist-img"
+                      src={el.track.album.images[0].url}
+                    />
+                  </td>
+                  <td>
+                    <p className="playlist-table-p">
+                      {el.track.artists[0].name}
+                    </p>
+                  </td>
+                  <td>
+                    <audio controls src={el.track.preview_url}></audio>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
+          {/* <table> */}
+          {/* <thead className="playlist-thead">
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Album</th>
+                <th>Date Added</th>
+                <th>
+                  <FaClock />
+                </th>
+              </tr>
+            </thead> */}
+          {/* <tbody className="playlist-tbody">
+
+              {data?.map((el, i) => (
+                <tr>
+                  <div className="playlists" key={i}>
+                    <th>{i + 1}</th>
+                    <td>
+                      <img
+                        className="playlist-img"
+                        src={el.track.album.images[0].url}
+                      />
+                    </td>
+                    <td>
+                      <p>{el.track.artists[0].name}</p>
+                    </td>
+
+                    <td>
+                      <audio controls src={el.track.preview_url}></audio>
+                    </td>
+                  </div>
+                </tr>
+              ))}
+            </tbody> */}
+          {/* </table> */}
         </div>
       </h1>
       <RIghtSIdebar />
@@ -102,4 +165,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default PlayList;
