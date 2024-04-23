@@ -11,7 +11,7 @@ const RIghtSIdebar = () => {
         <div className="vme">
           <p>Friend Activity</p>
           <IoMdPersonAdd className="Ii" />
-          <VscChromeClose className="Ii" />
+          <VscChromeClose className="IiExt" />
         </div>
         <div className="sled">
           <p>

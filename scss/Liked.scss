@@ -1,3 +1,74 @@
-.playlists {
-  margin-left: 400px;
+.likeSongs {
+  background: linear-gradient(180deg, #3333a3 5.09%, #121212 33.4%);
+  margin-left: 280px;
+  .liked-strelka {
+    display: flex;
+    gap: 22px;
+    padding-top: 20px;
+    padding-left: 41px;
+  }
+  .liked-vmeste {
+    margin-top: 48px;
+    padding-left: 41px;
+    display: flex;
+    gap: 3px;
+    .liked-vmeste2 {
+      padding-top: 94px;
+      padding-left: 32px;
+      h1 {
+        font-family: sans-serif;
+        font-size: 100px;
+        font-weight: 900;
+        line-height: 154.33px;
+        letter-spacing: -0.06em;
+        text-align: left;
+        color: #fff;
+      }
+      h4 {
+        width: 84px;
+        color: #fff;
+      }
+    }
+  }
+  .liked-vmestee {
+    padding-left: 41px;
+    padding-top: 62px;
+    display: flex;
+    // gap: 21px;
+    .liked-icons {
+      color: #65d36e;
+      width: 72px;
+      height: 72px;
+    }
+    .likeVmeste {
+      margin-left: 35px;
+      display: flex;
+      gap: 21px;
+      .liked-icons2 {
+        color: rgb(255, 255, 255);
+        width: 52px;
+        height: 52px;
+        margin-top: 8px;
+      }
+    }
+    .likeVmestee {
+      display: flex;
+      margin-left: 400px;
+      gap: 30px;
+      margin-top: 25px;
+      .liked-icons2 {
+        color: rgb(255, 255, 255);
+        width: 20px;
+        height: 20px;
+      }
+      select {
+        width: 110px;
+        height: 25px;
+        background-color: black;
+        color: white;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 5px;
+      }
+    }
+  }
 }

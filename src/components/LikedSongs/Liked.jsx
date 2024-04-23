@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "../../../scss/Liked.scss";
+import liked from "../../../images/liked-like.png";
 import LeftSidebar from "../Sidebars/LeftSidebar";
 import RIghtSIdebar from "../Sidebars/RIghtSIdebar";
+import { FaChevronCircleLeft } from "react-icons/fa";
+import { FaChevronCircleRight } from "react-icons/fa";
+import { ImPlay2 } from "react-icons/im";
+import { BiSolidLike } from "react-icons/bi";
+import { FiDownload } from "react-icons/fi";
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { FaSearch } from "react-icons/fa";
+
 const Liked = () => {
   const [audio, setAudio] = useState([]);
   const ClientID = "f8ad3b81570c4ebfb5c3be7e657a0366";
@@ -53,18 +62,45 @@ const Liked = () => {
   return (
     <div>
       <LeftSidebar />
-      <div className="playlists">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-          aspernatur deleniti ullam enim cupiditate quia non! Animi voluptatibus
-          vel atque soluta adipisci. Vitae harum quasi, rem adipisci nihil vel
-          tempore.
-        </p>
-        {audio.map((audio) => (
-          <div>
-            {/* <audio ref={(element) => setAudio(element)} src={track}></audio> */}
+      <div className="likeSongs">
+        <div className="liked-strelka">
+          <FaChevronCircleLeft className="I" />
+          <FaChevronCircleRight className="I" />
+        </div>
+        <div className="liked-vmeste">
+          <img src={liked} alt="" />
+          <div className="liked-vmeste2">
+            <h4>PUBLIC PLAYLIST</h4>
+            <h1>Liked Songs</h1>
           </div>
-        ))}
+        </div>
+        <div className="liked-vmestee">
+          <ImPlay2 className="liked-icons" />
+          <div className="likeVmeste">
+            <BiSolidLike className="liked-icons2" />
+            <FiDownload className="liked-icons2" />
+            <HiOutlineDotsHorizontal className="liked-icons2" />
+          </div>
+          <div className="likeVmestee">
+            <FaSearch className="liked-icons2" />
+            <select name="en" id="en">
+              <option value="en">Custom order</option>
+              <option value="en">Custom order</option>
+            </select>
+          </div>
+        </div>
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Album</th>
+                <th>Date Added</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </div>
       <RIghtSIdebar />
     </div>

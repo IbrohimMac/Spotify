@@ -1,64 +1,29 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../../../scss/Spotify.scss";
 import { Link } from "react-router-dom";
-import LeftSidebar from "../Sidebars/LeftSidebar";
-import RIghtSIdebar from "../Sidebars/RIghtSIdebar";
 import { FaChevronCircleLeft } from "react-icons/fa";
 import { FaChevronCircleRight } from "react-icons/fa";
-import i1 from "../../../images/card1.svg";
-import i2 from "../../../images/card2.svg";
-import i3 from "../../../images/card3.svg";
-import i4 from "../../../images/card4.svg";
-import i5 from "../../../images/card5.svg";
-import i6 from "../../../images/card6.svg";
+import { getPlaylists, getToken } from "../JS/script";
+import { API } from "../JS/data";
+import LeftSidebar from "../Sidebars/LeftSidebar";
+import RIghtSIdebar from "../Sidebars/RIghtSIdebar";
 const Spotify = () => {
   /////
-  const [playlists, setPlaylists] = useState([]);
-  const ClientID = "f8ad3b81570c4ebfb5c3be7e657a0366";
-  const ClientSecret = "4fc769b86e634917b57d50cf781a3358";
+  const [data, setData] = useState([]);
   const token = "https://accounts.spotify.com/api/token";
-  const url =
-    "https://api.spotify.com/v1/browse/categories/toplists/playlists?limit=6";
-
-  const getToken = async () => {
-    await fetch(token, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: `Basic ${btoa(ClientID + ":" + ClientSecret)}`,
-      },
-      body: "grant_type=client_credentials",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        localStorage.setItem(
-          "asset_token",
-          JSON.stringify(`${data.token_type} ${data.access_token}`)
-        );
-      })
-      .catch((err) => console.log(err));
-  };
-  /////// 2///
-  const getPlaylists = async () => {
-    await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("asset_token")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.playlists.items);
-        setPlaylists(data.playlists.items);
-      })
-      .catch((err) => console.log(err));
-  };
   useEffect(() => {
     const fetchData = async () => {
-      await getToken();
-      await getPlaylists();
+      try {
+        await getToken(token);
+        const playlists = await getPlaylists(API);
+        setData(playlists?.playlists.items);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
     fetchData();
   }, []);
+  console.log(data);
   ///
   return (
     <div className="big3">
@@ -71,43 +36,117 @@ const Spotify = () => {
           </div>
           <h1 className="vm-h">Good afternoon</h1>
           <div className="cards">
-            <div className="card1">
-              <img src={i1} alt="" />
-              <h3>Chill Mix</h3>
-            </div>
-            <div className="card1">
-              <img src={i2} alt="" />
-              <h3>Pop Mix</h3>
-            </div>
-            <div className="card1">
-              <img src={i3} alt="" />
-              <h3>Daily Mix 1</h3>
-            </div>
-            <div className="card1">
-              <img src={i4} alt="" />
-              <h3>Daily Mix 5</h3>
-            </div>
-            <div className="card1">
-              <img src={i5} alt="" />
-              <h3>Folk & Acoustic Mix</h3>
-            </div>
-            <div className="card1">
-              <img src={i6} alt="" />
-              <h3>Daily Mix 4</h3>
-            </div>
+            {data.slice(1, 7).map((data, index) => (
+              <Link
+                to={`/playlist/${data.id}?type=API`}
+                key={index}
+                className="Link"
+              >
+                <div className="card1">
+                  <img src={data.images[0].url} alt="" />
+                  <h3>{data.name}</h3>
+                </div>
+              </Link>
+            ))}
           </div>
           <h1 className="h1">Your top mixes</h1>
           <div className="playlist">
-            {playlists.map((playlists) => (
-              <Link className="Link" to="/PlayList">
-                <div key={playlists.id} className="playlist-card">
+            {data.slice(1, 5).map((data, index) => (
+              <Link
+                to={`/playlist/${data.id}?type=API`}
+                key={index}
+                className="Link"
+              >
+                <div className="playlist-card">
                   <img
                     className="playlist-img"
-                    src={playlists.images[0].url}
-                    alt={playlists.name}
+                    src={data.images[0].url}
+                    alt={data.name}
                   />
-                  <h3>{playlists.name}</h3>
-                  <h4>{playlists.description}</h4>
+                  <h3>{data.name}</h3>
+                  <h4>{data.description}</h4>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <h1 className="h1">Made for you</h1>
+          <div className="playlist">
+            {data.slice(5, 9).map((data, index) => (
+              <Link
+                to={`/playlist/${data.id}?type=API`}
+                key={index}
+                className="Link"
+              >
+                <div className="playlist-card">
+                  <img
+                    className="playlist-img"
+                    src={data.images[0].url}
+                    alt={data.name}
+                  />
+                  <h3>{data.name}</h3>
+                  <h4>{data.description}</h4>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <h1 className="h1">Recently played</h1>
+          <div className="playlist">
+            {data.slice(10, 14).map((data, index) => (
+              <Link
+                to={`/playlist/${data.id}?type=API`}
+                key={index}
+                className="Link"
+              >
+                <div className="playlist-card">
+                  <img
+                    className="playlist-img"
+                    src={data.images[0].url}
+                    alt={data.name}
+                  />
+                  <h3>{data.name}</h3>
+                  <h4>{data.description}</h4>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <h1 className="h1">Jump back in</h1>
+          <div className="playlist">
+            {data.slice(15, 19).map((data, index) => (
+              <Link
+                to={`/playlist/${data.id}?type=API`}
+                key={index}
+                className="Link"
+              >
+                <div className="playlist-card">
+                  <img
+                    className="playlist-img"
+                    src={data.images[0].url}
+                    alt={data.name}
+                  />
+                  <h3>{data.name}</h3>
+                  <h4>{data.description}</h4>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <h1 className="h1">Uniquely yours</h1>
+          <div className="playlist">
+            {data.slice(7, 11).map((data, index) => (
+              <Link
+                to={`/playlist/${data.id}?type=API`}
+                key={index}
+                className="Link"
+              >
+                <div className="playlist-card">
+                  <img
+                    className="playlist-img"
+                    src={data.images[0].url}
+                    alt={data.name}
+                  />
+                  <h3>{data.name}</h3>
+                  <h4>{data.description}</h4>
                 </div>
               </Link>
             ))}

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Spotify from "./components/Home/Spotify";
 import Liked from "./components/LikedSongs/Liked";
@@ -11,8 +12,8 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Spotify />} />
-          <Route path="/Liked" element={<Liked />} />
-          <Route path="/PlayList" element={<PlayList />} />
+          <Route path="/liked" element={<Liked />} />
+          <Route path="playlist/:id" element={<PlayList />} />
         </Routes>
       </Router>
     </div>
