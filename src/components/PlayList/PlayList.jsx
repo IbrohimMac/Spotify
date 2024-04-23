@@ -19,8 +19,8 @@ const PlayList = () => {
   const apiUrl = api.toString().split("?type=")[1];
   const tokenURl = "https://accounts.spotify.com/api/token";
 
-  const [date, setDate] = useState(null);
   const [data, setData] = useState(null);
+  const [date, setDate] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,26 +49,12 @@ const PlayList = () => {
             console.log(el);
             if (el?.id === id) {
               return (
-                <div key={i}>
-                  <div className="playlist-top">
-                    <div className="arrows">
-                      <IoIosArrowBack className="IoIosArrowBack" />
-                      <IoIosArrowForward className="IoIosArrowForward" />
-                    </div>
-                    <div className="playlist_top-texts">
-                      <img src={el?.images[0].url} alt={el?.name} />
-                      <div className="texts">
-                        <h6>PUBLIC PLAYLIST</h6>
-                        <h1>{el?.name}</h1>
-                        <p>
-                          Julia Wolf, ayokay, Khalid <span>and more</span>
-                        </p>
-                        <p>
-                          <span>ade for </span>davedirect3
-                          <span>34 songs, 2hr 01 min</span>
-                        </p>
-                      </div>
-                    </div>
+                <div className="playlist-card" key={i}>
+                  <img src={el.images[0].url} alt="" />
+                  <div className="playlist-card-mini">
+                    <h3>PUBLIC PLAYLIST</h3>
+                    <h1>{el?.name}</h1>
+                    <p>{el.description}</p>
                   </div>
                 </div>
               );
