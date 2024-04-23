@@ -99,6 +99,14 @@ const Liked = () => {
                 <th>Date Added</th>
               </tr>
             </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <th>Mark</th>
+                <th>Otto</th>
+                <th>@@@</th>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>

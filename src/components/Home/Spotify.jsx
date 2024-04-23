@@ -7,6 +7,7 @@ import { getPlaylists, getToken } from "../JS/script";
 import { API } from "../JS/data";
 import LeftSidebar from "../Sidebars/LeftSidebar";
 import RIghtSIdebar from "../Sidebars/RIghtSIdebar";
+
 const Spotify = () => {
   /////
   const [data, setData] = useState([]);
@@ -36,7 +37,7 @@ const Spotify = () => {
           </div>
           <h1 className="vm-h">Good afternoon</h1>
           <div className="cards">
-            {data.slice(1, 7).map((data, index) => (
+            {data.slice(2, 8).map((data, index) => (
               <Link
                 to={`/playlist/${data.id}?type=API`}
                 key={index}
@@ -51,7 +52,7 @@ const Spotify = () => {
           </div>
           <h1 className="h1">Your top mixes</h1>
           <div className="playlist">
-            {data.slice(1, 5).map((data, index) => (
+            {data.slice(2, 6).map((data, index) => (
               <Link
                 to={`/playlist/${data.id}?type=API`}
                 key={index}
@@ -91,7 +92,7 @@ const Spotify = () => {
           </div>
           <h1 className="h1">Recently played</h1>
           <div className="playlist">
-            {data.slice(10, 14).map((data, index) => (
+            {data.slice(8, 12).map((data, index) => (
               <Link
                 to={`/playlist/${data.id}?type=API`}
                 key={index}
@@ -112,7 +113,7 @@ const Spotify = () => {
 
           <h1 className="h1">Jump back in</h1>
           <div className="playlist">
-            {data.slice(15, 19).map((data, index) => (
+            {data.slice(3, 7).map((data, index) => (
               <Link
                 to={`/playlist/${data.id}?type=API`}
                 key={index}

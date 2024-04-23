@@ -3,14 +3,13 @@
   padding: 0;
   margin: 0;
 }
-body {
-  background: linear-gradient(180deg, #3333a3 5.09%, #121212 33.4%);
-  background-repeat: no-repeat;
-}
+
 .Link {
   text-decoration: none;
 }
 .big3 {
+  background: linear-gradient(180deg, #3333a3 5.09%, #121212 33.4%);
+  background-repeat: no-repeat;
   max-width: 950px;
   height: 3000px;
   margin-left: 280px;

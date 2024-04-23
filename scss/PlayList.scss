@@ -1,4 +1,103 @@
-.playlist-content {
+.playlistBig {
+  background: linear-gradient(180deg, #def628 5.09%, #121212 43.28%);
+  background-repeat: no-repeat;
   max-width: 950px;
-  padding-left: 280px;
+  padding-left: 314px;
+  padding-top: 20px;
+  .playlist-card {
+    display: flex;
+    margin-top: 48px;
+    margin-left: 5px;
+    .playlist-card-mini {
+      padding-left: 30px;
+      h3 {
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20.24px;
+        letter-spacing: -0.02em;
+        text-align: left;
+      }
+      h1 {
+        width: 290px;
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 75px;
+        text-align: left;
+      }
+      p {
+        margin-top: 12px;
+        max-width: 550px;
+        color: #fff;
+      }
+    }
+  }
+  .playlist-vmeste {
+    padding-left: 5px;
+    padding-top: 62px;
+    display: flex;
+    // gap: 21px;
+    .playlist-icons {
+      color: #65d36e;
+      width: 72px;
+      height: 72px;
+    }
+    .playlistVmeste {
+      margin-left: 35px;
+      display: flex;
+      gap: 21px;
+      .playlist-icons2 {
+        color: rgb(255, 255, 255);
+        width: 52px;
+        height: 52px;
+        margin-top: 8px;
+      }
+    }
+    .playlistVmestee {
+      display: flex;
+      margin-left: 400px;
+      gap: 30px;
+      margin-top: 25px;
+      .playlist-icons2 {
+        color: rgb(255, 255, 255);
+        width: 20px;
+        height: 20px;
+      }
+      select {
+        width: 110px;
+        height: 25px;
+        background-color: black;
+        color: white;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 5px;
+      }
+    }
+  }
+  .playlist-table {
+    margin-top: 30px;
+    .playlist-thead {
+      th {
+        color: #b3b3b3;
+        font-size: 16px;
+      }
+      .th1 {
+        padding-left: 35px;
+      }
+      .th2 {
+        padding-left: 200px;
+      }
+      .th3 {
+        padding-left: 170px;
+      }
+      .th4 {
+        padding-left: 158px;
+      }
+    }
+    .playlist-tbody {
+      th {
+        color: #b3b3b3;
+      }
+    }
+  }
 }
