@@ -37,7 +37,9 @@ const Spotify = () => {
         <div className="fir">
           <div className="vv">
             <FaChevronCircleLeft className="I" />
-            <FaChevronCircleRight className="I" />
+            <Link to="/playlist">
+              <FaChevronCircleRight className="I" />
+            </Link>
           </div>
           <h1 className="vm-h">Good afternoon</h1>
           <div className="cards">
@@ -54,8 +56,8 @@ const Spotify = () => {
               </Link>
             ))}
           </div>
-          <Made />
           <Mixes />
+          <Made />
           <Recent />
           <Jump />
           <Uniquely />

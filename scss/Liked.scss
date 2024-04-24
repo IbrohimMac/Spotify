@@ -1,12 +1,16 @@
 body {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
+}
+.vvmes {
+  padding-left: 25px;
+  padding-top: 20px;
 }
 .likeSongs {
   background: linear-gradient(180deg, #3333a3 5.09%, #121212 33.4%);
   margin-left: 280px;
   .liked-strelka {
     display: flex;
-    gap: 22px;
+    gap: 18px;
     padding-top: 20px;
     padding-left: 41px;
   }

@@ -13,6 +13,7 @@ import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { ImPlay2 } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const PlayList = () => {
   const { id } = useParams();
   const api = window.location.href;
@@ -41,8 +42,12 @@ const PlayList = () => {
   return (
     <div className="playlistBig">
       <LeftSidebar />
-      <FaChevronCircleLeft className="I" />
-      <FaChevronCircleRight className="I" />
+      <Link to="/">
+        <FaChevronCircleLeft className="I" />
+      </Link>
+      <Link to="/liked">
+        <FaChevronCircleRight className="I" />
+      </Link>
       <h1>
         <div>
           {date?.map((el, i) => {

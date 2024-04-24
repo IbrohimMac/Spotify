@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getMusic, getApia } from "../JS/script";
 import { Link } from "react-router-dom";
 import { Recent } from "../JS/data";
-const Recen = () => {
+const Rec = () => {
   const tokenURl = "https://accounts.spotify.com/api/token";
 
   const [data, setData] = useState([]);
@@ -46,4 +46,4 @@ const Recen = () => {
   );
 };
 
-export default Recen;
+export default Rec;

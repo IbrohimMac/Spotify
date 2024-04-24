@@ -19,7 +19,6 @@
   .bigg1 {
     padding: 20px 30px;
     .mini1 {
-      // padding-bottom: 50px;
       .home {
         display: flex;
         gap: 20px;
@@ -27,8 +26,9 @@
           color: white;
           margin-top: 5px;
         }
-        h3:active {
-          color: #d4d2d2;
+        h3:hover {
+          color: #ccc;
+          transition: 0.3s;
         }
       }
       .search {
@@ -62,8 +62,9 @@
           color: white;
           margin-top: 5px;
         }
-        h3:active {
-          color: #d4d2d2;
+        h3:hover {
+          color: #ccc;
+          transition: 0.3s;
         }
       }
       .songs {
@@ -74,8 +75,9 @@
           color: white;
           margin-top: 5px;
         }
-        h3:active {
+        h3:hover {
           color: #d4d2d2;
+          transition: 0.3s;
         }
       }
     }

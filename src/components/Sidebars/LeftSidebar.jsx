@@ -27,12 +27,12 @@ const LeftSidebar = () => {
           </div>
         </div>
         <div className="mini2">
-          {/* <Link to="/PlayList" className="link"> */}
-          <div className="create">
-            <RiAddCircleFill className="II" />
-            <h3>Create Playlist</h3>
-          </div>
-          {/* </Link> */}
+          <Link to="/playList" className="link">
+            <div className="create">
+              <RiAddCircleFill className="II" />
+              <h3>Create Playlist</h3>
+            </div>
+          </Link>
           <Link to="/liked" className="link">
             <div className="songs">
               <AiTwotoneLike className="II" />

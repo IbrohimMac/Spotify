@@ -14,6 +14,7 @@ const App = () => {
           <Route path="/" element={<Spotify />} />
           <Route path="/liked" element={<Liked />} />
           <Route path="playlist/:id" element={<PlayList />} />
+          <Route path="/playlist" element={<PlayList />} />
         </Routes>
       </Router>
     </div>

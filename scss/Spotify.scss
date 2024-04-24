@@ -11,14 +11,15 @@
   background: linear-gradient(180deg, #3333a3 5.09%, #121212 33.4%);
   background-repeat: no-repeat;
   max-width: 950px;
-  height: 3000px;
-  margin-left: 280px;
+  height: 2850px;
+  margin-left: 275px;
   .vm {
     display: flex;
     .fir {
       padding: 0px 40px;
       .vv {
         margin-top: 20px;
+        margin-left: -12px;
       }
       .vm-h {
         font-size: 39px;
@@ -58,27 +59,28 @@
       }
       .h1 {
         color: white;
-        margin-left: 15px;
+        margin-left: 25px;
         margin-top: 50px;
       }
       .playlist {
         margin-top: 36px;
         display: flex;
         gap: 30px;
-        margin-left: -15px;
+        // margin-left: -15px;
         justify-content: center;
         .playlist-card {
+          flex-wrap: wrap;
           padding-top: 10px;
-          width: 200px;
-          min-height: 360px;
+          width: 180px;
+          min-height: 330px;
           height: 100%;
           gap: 0px;
           border-radius: 8px;
           background-color: rgb(26, 25, 25);
           text-align: center;
           .playlist-img {
-            width: 182px;
-            height: 182px;
+            width: 160px;
+            height: 160px;
             // margin-left: 21px;
           }
           h3 {

@@ -10,6 +10,7 @@ import { BiSolidLike } from "react-icons/bi";
 import { FiDownload } from "react-icons/fi";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Liked = () => {
   const [audio, setAudio] = useState([]);
@@ -63,9 +64,11 @@ const Liked = () => {
     <div>
       <LeftSidebar />
       <div className="likeSongs">
-        <div className="liked-strelka">
+        <div className="vvmes">
           <FaChevronCircleLeft className="I" />
-          <FaChevronCircleRight className="I" />
+          <Link to="/">
+            <FaChevronCircleRight className="I" />
+          </Link>
         </div>
         <div className="liked-vmeste">
           <img src={liked} alt="" />
@@ -88,26 +91,6 @@ const Liked = () => {
               <option value="en">Custom order</option>
             </select>
           </div>
-        </div>
-        <div className="table">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Title</th>
-                <th>Album</th>
-                <th>Date Added</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <th>Mark</th>
-                <th>Otto</th>
-                <th>@@@</th>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
       <RIghtSIdebar />

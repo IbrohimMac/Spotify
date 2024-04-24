@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getMusic, getApia } from "../JS/script";
 import { Link } from "react-router-dom";
 import { Made } from "../JS/data";
-const Mad = () => {
+const Maded = () => {
   const tokenURl = "https://accounts.spotify.com/api/token";
 
   const [data, setData] = useState([]);
@@ -22,7 +22,7 @@ const Mad = () => {
   console.log(data);
   return (
     <div>
-      <h1 className="h1">Made for you</h1>
+      <h1 className="h1">Made</h1>
       <div className="playlist">
         {data.slice(0, 4).map((data, index) => (
           <Link
@@ -46,4 +46,4 @@ const Mad = () => {
   );
 };
 
-export default Mad;
+export default Maded;

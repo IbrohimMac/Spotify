@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getMusic, getApia } from "../JS/script";
 import { Link } from "react-router-dom";
 import { Mixes } from "../JS/data";
-const Mixe = () => {
+const Mix = () => {
   const tokenURl = "https://accounts.spotify.com/api/token";
 
   const [data, setData] = useState([]);
@@ -46,4 +46,4 @@ const Mixe = () => {
   );
 };
 
-export default Mixe;
+export default Mix;
