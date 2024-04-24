@@ -80,16 +80,27 @@ const PlayList = () => {
           <table class="table">
             <thead className="playlist-thead">
               <tr>
-                <th>#</th>
-                <th>Title</th>
-                <th>Album</th>
-                <th>Date Added</th>
+                <th scope="col">#</th>
+                <th className="th1" scope="col">
+                  TITLE
+                </th>
+                <th className="th2" scope="col">
+                  ALBUM
+                </th>
+                <th scope="col">MUSIC</th>
               </tr>
             </thead>
+
             <tbody className="playlist-tbody">
               {data?.slice(0, 15).map((el, i) => (
                 <tr>
-                  <th scope="row">{i + 1}</th>
+                  <th
+                    className="playlist-tbody-th"
+                    style={{ fontSize: "22px" }}
+                    scope="row"
+                  >
+                    {i + 1}
+                  </th>
                   <td>
                     <img
                       className="playlist-img"
@@ -97,53 +108,27 @@ const PlayList = () => {
                     />
                   </td>
                   <td>
-                    <p className="playlist-table-p">
+                    <p
+                      style={{ fontSize: "22px" }}
+                      className="playlist-table-p"
+                    >
                       {el.track.artists[0].name}
                     </p>
                   </td>
                   <td>
-                    <audio controls src={el.track.preview_url}></audio>
+                    <audio
+                      className="playlist-table-audio"
+                      controls
+                      src={el.track.preview_url}
+                    ></audio>
+                  </td>
+                  <td>
+                    <p>{}</p>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-          {/* <table> */}
-          {/* <thead className="playlist-thead">
-              <tr>
-                <th>#</th>
-                <th>Title</th>
-                <th>Album</th>
-                <th>Date Added</th>
-                <th>
-                  <FaClock />
-                </th>
-              </tr>
-            </thead> */}
-          {/* <tbody className="playlist-tbody">
-
-              {data?.map((el, i) => (
-                <tr>
-                  <div className="playlists" key={i}>
-                    <th>{i + 1}</th>
-                    <td>
-                      <img
-                        className="playlist-img"
-                        src={el.track.album.images[0].url}
-                      />
-                    </td>
-                    <td>
-                      <p>{el.track.artists[0].name}</p>
-                    </td>
-
-                    <td>
-                      <audio controls src={el.track.preview_url}></audio>
-                    </td>
-                  </div>
-                </tr>
-              ))}
-            </tbody> */}
-          {/* </table> */}
         </div>
       </h1>
       <RIghtSIdebar />

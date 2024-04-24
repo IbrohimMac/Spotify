@@ -24,7 +24,7 @@ const Recen = () => {
     <div>
       <h1 className="h1">Recently played</h1>
       <div className="playlist">
-        {data.slice(0, 4).map((data, index) => (
+        {data.slice(2, 6).map((data, index) => (
           <Link
             to={`/playlist/${data.id}?type=Recent`}
             key={index}

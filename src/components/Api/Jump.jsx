@@ -24,7 +24,7 @@ const Jum = () => {
     <div>
       <h1 className="h1">Jump back in</h1>
       <div className="playlist">
-        {data.slice(0, 4).map((data, index) => (
+        {data.slice(2, 6).map((data, index) => (
           <Link
             to={`/playlist/${data.id}?type=Jump`}
             key={index}
